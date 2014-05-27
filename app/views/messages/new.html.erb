@@ -1,0 +1,23 @@
+<% content_for :page_title, "Send new SMS" %>
+
+<%= form_for @message, method: "POST", html: { class: "form-horizontal", role: "form" } do |f| %>
+  <div class="form-group">
+    <%= f.label :to, "To", class: "control-label col-sm-1" %>
+    <div class="col-sm-5">
+      <%= f.text_field :to, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :body, "Message", class: "control-label col-sm-1" %>
+    <div class="col-sm-5">
+      <%= f.text_area :body, class: "form-control", rows: 6 %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-1 col-sm-11">
+      <button type="submit" class="btn btn-default">Send</button>
+    </div>
+  </div>
+<% end %>

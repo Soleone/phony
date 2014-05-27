@@ -1,0 +1,13 @@
+<% content_for :page_title, "List all inbound and outbound SMS" %>
+
+<table class="messages table table-striped">
+  <tr>
+    <th>Message</th>
+    <th>From<th>
+    <th>To</th>
+  </tr>
+  
+  <% for message in @messages %>
+    <%= render message %>
+  <% end %>
+</table>

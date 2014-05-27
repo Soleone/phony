@@ -1,0 +1,47 @@
+class Message
+  include ActiveModel::Model
+
+  attr_accessor :to, :from, :body, :direction
+
+  def self.list
+    messages = TWILIO_MESSAGES.list
+    messages.map { |twilio_message| Message.from_twilio_message(twilio_message) }
+  end
+
+  def self.from_twilio_message(twilio_message)
+    new({
+      to: twilio_message.to,
+      from: twilio_message.from,
+      body: twilio_message.body,
+      direction: twilio_message.direction
+    })
+  end
+
+  def initialize(attributes={})
+    super
+    @from = attributes[:from] || Settings::KEYS['DEFAULT_FROM_NUMBER']
+  end
+
+  def publish
+    TWILIO_MESSAGES.create(twilio_options)
+  end
+
+  def inbound?
+    direction == 'inbound'
+  end
+
+  def outbound?
+    !inbound?
+  end
+
+
+  private
+
+  def twilio_options
+    {
+      from: from,
+      to: to,
+      body: body
+    }
+  end
+end

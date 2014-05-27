@@ -1,0 +1,11 @@
+<tr class="message <%= 'success' if message.inbound? %>">
+  <td>
+    <%= message.body %>
+  </td>
+  <td class="from">
+    <%= message.outbound? ? "Outbound" : message.from %>
+  <td>
+  <td class="to">
+    <%= message.inbound? ? "Inbound" : message.to %>
+  </td>
+</tr>

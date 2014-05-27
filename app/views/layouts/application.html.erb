@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Phony</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+
+<div class="container">
+  <ul class="nav nav-pills">
+    <%= nav_link_to "List", :messages %>
+    <%= nav_link_to "Send", [:new, :message] %>
+  </ul>
+
+  <h1>
+    SMS
+    <small><%= content_for :page_title %></small>
+  </h1>
+
+  <div class="main">
+    <%= yield %>
+  </div>
+
+</body>
+</html>

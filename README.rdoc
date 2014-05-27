@@ -1,0 +1,12 @@
+== Phony
+
+Simple Twilio app to send and list SMS.
+
+* Copy config/keys.example.yml to config/keys.yml
+* Insert all settings:
+* Twilio credentials
+* Your twilio from number
+* Choose username and password to access the app via basic auth.
+* bundle install
+* rails/server
+* visit http://localhost:3000
