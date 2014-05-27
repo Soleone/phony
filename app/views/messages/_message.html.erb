@@ -8,4 +8,9 @@
   <td class="to">
     <%= message.inbound? ? "Inbound" : message.to %>
   </td>
+  <td class="actions">
+    <% if message.inbound? %>
+      <%= link_to "reply", [:new, :message, { to: message.from }] %>
+    <% end %>
+  </td>
 </tr>
