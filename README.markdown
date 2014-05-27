@@ -4,7 +4,7 @@ Simple Twilio app to send and list SMS.
 
 Demo:
 
-![image](https://cloud.githubusercontent.com/assets/2923/3093031/8a99cae2-e5ae-11e3-9ca1-a9e0989a87ab.png)
+![image](http://recordit.co/VJVc7mT7Fl.gif)
 
 
 ## Setup
