@@ -1,6 +1,8 @@
-== Phony
+# Phony
 
 Simple Twilio app to send and list SMS.
+
+## Setup
 
 1. Copy `config/keys.example.yml` to `config/keys.yml`
 2. Insert all settings:
