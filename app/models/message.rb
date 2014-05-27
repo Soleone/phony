@@ -3,8 +3,8 @@ class Message
 
   attr_accessor :to, :from, :body, :direction
 
-  def self.list
-    messages = TWILIO_MESSAGES.list
+  def self.list(filter = {})
+    messages = TWILIO_MESSAGES.list(filter)
     messages.map { |twilio_message| Message.from_twilio_message(twilio_message) }
   end
 

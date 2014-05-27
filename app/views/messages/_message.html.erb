@@ -3,10 +3,10 @@
     <%= message.body %>
   </td>
   <td class="from">
-    <%= message.outbound? ? "Outbound" : message.from %>
+    <%= message.outbound? ? "Me" : message_filter_link(message.from, :from) %>
   <td>
   <td class="to">
-    <%= message.inbound? ? "Inbound" : message.to %>
+    <%= message.inbound? ? "Me" : message_filter_link(message.to, :to) %>
   </td>
   <td class="actions">
     <% if message.inbound? %>

@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   http_basic_authenticate_with name: Settings::KEYS['BASIC_AUTH_USERNAME'], password: Settings::KEYS['BASIC_AUTH_PASSWORD']
   
   def index
-    @messages = Message.list
+    @messages = Message.list(params[:filter])
   end
 
   def new
