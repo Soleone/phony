@@ -10,12 +10,17 @@
 
 <body>
 
-<div class="container">
-  <ul class="nav nav-pills">
-    <%= nav_link_to "List", :messages %>
-    <%= nav_link_to "Send", [:new, :message] %>
-  </ul>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <%= link_to "Phony", "/", class: "navbar-brand" %>
+      <%= nav_link_to "List", :messages %>
+      <%= nav_link_to "Send", [:new, :message] %>
+    </ul>
+  </div>
+</nav>
 
+<div class="container">
   <h1>
     SMS
     <small><%= content_for :page_title %></small>
