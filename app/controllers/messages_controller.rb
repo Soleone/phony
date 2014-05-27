@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
   end
 
   def new
-    @message = Message.new
+    @message = Message.new(params.slice(:to))
   end
 
   def create
