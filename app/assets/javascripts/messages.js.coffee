@@ -16,3 +16,6 @@ $ ->
       $(".character-count-status").addClass("warning")
     else
       $(".character-count-status").removeClass("warning")
+
+$(document).on "idle.idleTimer", ->
+  window.location.reload()
