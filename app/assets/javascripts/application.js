@@ -15,5 +15,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
-//= require idle-timer
+//= require jquery-idle-timer
+//= require jquery-visibility
+//= require jquery-cookie
+//= require favico
+//= require page-visibility
 //= require_tree .
+

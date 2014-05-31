@@ -2,6 +2,25 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+window.Phony ?= {}
+
+window.Phony.Favicon = new Favico(animation: 'slide')
+  
+class Phony.MessageNotifier
+  @updateLastSeenSid: ->
+    lastSeenSid = $($(".message")[0]).data("sid")
+    $.cookie('lastSeenSid', lastSeenSid)
+
+  @showNewMessageCount: =>
+    if !!@lastSeenSid()
+      newMessageCount = $("[data-sid=#{@lastSeenSid()}]").index() - 1
+      if newMessageCount > 0
+        Phony.Favicon.badge(newMessageCount)
+        
+  @lastSeenSid: ->
+    $.cookie('lastSeenSid')
+
+
 $ ->
   if $("#message_to").val() == ""
     $("#message_to").focus()
@@ -17,5 +36,5 @@ $ ->
     else
       $(".character-count-status").removeClass("warning")
 
-$(document).on "idle.idleTimer", ->
-  window.location.reload()
+  $(document).on "idle.idleTimer", ->
+    window.location.reload()

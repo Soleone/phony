@@ -1,4 +1,4 @@
-<tr class="message <%= 'success' if message.inbound? %>">
+<tr class="message <%= 'success' if message.inbound? %>" data-sid="<%= message.sid %>" data-created-at="<%= message.created_at %>">
   <td>
     <%= message.body %>
   </td>

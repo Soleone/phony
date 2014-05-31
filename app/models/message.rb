@@ -1,7 +1,7 @@
 class Message
   include ActiveModel::Model
 
-  attr_accessor :to, :from, :body, :direction
+  attr_accessor :to, :from, :body, :direction, :sid, :created_at
 
   def self.list(filter = {})
     messages = TWILIO_MESSAGES.list(filter)
@@ -13,7 +13,9 @@ class Message
       to: twilio_message.to,
       from: twilio_message.from,
       body: twilio_message.body,
-      direction: twilio_message.direction
+      direction: twilio_message.direction,
+      sid: twilio_message.sid,
+      created_at: twilio_message.date_created
     })
   end
 

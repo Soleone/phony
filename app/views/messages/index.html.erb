@@ -2,9 +2,22 @@
 
 <% content_for :head do %>
   <%= javascript_tag do %>
-    $(document).idleTimer(60000);
-    $(document).on("page:before-change", function() {
-      $(document).idleTimer("destroy");
+    $(document).ready(function() {
+      Phony.MessageNotifier.showNewMessageCount();
+      
+      if (Soleone.PageVisibility.isVisible()) {
+        Phony.MessageNotifier.updateLastSeenSid();
+      }
+
+      $(document).idleTimer(60000);
+
+      $(document).on("page:before-change", function() {
+        $(document).idleTimer("destroy");
+      });
+  
+      $(document).on('show.visibility', function() { 
+        Phony.MessageNotifier.updateLastSeenSid();
+      });
     });
   <% end %>
 <% end %>
